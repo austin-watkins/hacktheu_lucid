@@ -38,7 +38,7 @@
         var isCaps = false;
         var button_ids = ['bike', 'heart', 'mouth', 'child', 'man', 'woman',
         'person', 'student_man', 'student_woman', 'woman_baby', 'egg', 'chick',
-        'fish', 'bug', 'rose', 'tree', 'ice', 'fire']
+        'fish', 'bug', 'rose', 'tree', 'ice', 'fire', 'caps'];
 
         function myFunction(id) {
             //var word = document.getElementById("myText").value;
@@ -63,8 +63,7 @@
                     }  else {
                       document.getElementById(btn_id).innerHTML = obj[btn_id].normal;
                     }
-            })
-
+            });
         }
 
         const obj = {
@@ -136,8 +135,10 @@
               normal: '🌱',
               caps: '🌲'
             },
-
-
+            caps: {
+              normal: 'caps',
+              caps: 'CAPS'
+            }
         }
         </script>
 
