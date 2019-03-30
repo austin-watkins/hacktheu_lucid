@@ -4,44 +4,59 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Scrappy-Emoji-Board</title>
+        <title>Cappy-Emoji-Board</title>
     </head>
 
-    <body>
-        
-        Emoji Text: <input type="text" id="myText" value="">
-        <button id = 'bike' onclick="myFunction(this.id)">Bike</button>
+    <body onload="displayEmoji()">
+
+        <h1>CAPPY EMOJI BOARD</h1>
+
+        <p>Emoji Text: <input type="text" id="myText" value=""></P>
+
+        <!-- var bike_display = 🚲 -->
+        <button id = 'bike' onclick="myFunction(this.id)"></button>
         <button id = 'caps' onclick="toggleCaps()">caps</button>
 
         <script>
 
         var isCaps = false;
+        var button_ids = ['bike']
 
         function myFunction(id) {
             //var word = document.getElementById("myText").value;
             if(id in obj){
                 if(isCaps){
-                    document.getElementById("myText").value = obj[id].caps;
+                    document.getElementById("myText").value += ' ' + obj[id].caps;
                 }
                 else {
-                    document.getElementById("myText").value = obj[id].normal;
+                    document.getElementById("myText").value += ' ' +  obj[id].normal;
                 }
             };
         }
 
         function toggleCaps(){
             isCaps = !isCaps;
+            displayEmoji()
+        }
+        function displayEmoji() {
+            button_ids.forEach(btn_id => {
+                    if(isCaps) {
+                      document.getElementById(btn_id).innerHTML = obj[btn_id].caps;
+                    }  else {
+                      document.getElementById(btn_id).innerHTML = obj[btn_id].normal;
+                    }
+            })
+
         }
 
+
         const obj = {
-            bike: { 
-                normal: 'bike',
-                caps: 'motor bike'
+            bike: {
+                normal: '🚲',
+                caps: '🏍'
             }
         }
         </script>
-        <p>🍔</p>
-        :child: 
     </body>
 
 </html>
