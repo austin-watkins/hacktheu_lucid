@@ -1,0 +1,30 @@
+html{
+    background-color: #5CDB95;
+}
+h1 {
+    text-align: center;
+    color: #05386B;
+}
+
+body {
+    text-align: center;
+    color: #05386B;
+}
+
+input{
+    background-color: white;
+    border: 1px solid #379683;
+    direction:rtl;
+    text-align: left;
+    unicode-bidi: plaintext;
+}
+button {
+    background-color: #EDF5E1;
+    border: 1px solid #379683;
+    color: black;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
