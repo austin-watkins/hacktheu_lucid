@@ -2,34 +2,47 @@
 
 <html>
 
-<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Page Title</title>
+    </head>
 
-<meta charset="UTF-8">
+    <body>
+        
+        Emoji Text: <input type="text" id="myText" value="">
+        <button id = 'bike' onclick="myFunction(this.id)">Bike</button>
+        <button id = 'caps' onclick="toggleCaps()">caps</button>
 
-<title>Page Title</title>
+        <script>
 
-</head>
+        var isCaps = false;
 
-<body>
+        function myFunction(id) {
+            //var word = document.getElementById("myText").value;
+            if(id in obj){
+                if(isCaps){
+                    document.getElementById("myText").value = obj[id].caps;
+                }
+                else {
+                    document.getElementById("myText").value = obj[id].normal;
+                }
+            };
+        }
 
-<h1>This is a heading.</h1>
+        function toggleCaps(){
+            isCaps = !isCaps;
+        }
 
-<p>This is a paragraph.</p>
-
-<form action="/action_page.php">
-    First name:<br>
-    <input type="text" name="firstname" value="Mickey"><br>
-    Last name:<br>
-    <input type="text" name="lastname" value="Mouse"><br><br>
-    <input type="submit" value="Submit">
-</form>
-<button></button>
-:hamburger:
-<p>🍔</p>
-h1::before{
-    content: "\01F354";
-}
-</body>
+        const obj = {
+            bike: { 
+                normal: 'bike',
+                caps: 'motor bike'
+            }
+        }
+        </script>
+        <p>🍔</p>
+        :child: 
+    </body>
 
 </html>
 
