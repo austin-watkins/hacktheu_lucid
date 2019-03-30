@@ -7,35 +7,49 @@
         <title>Page Title</title>
     </head>
 
-    <body>
+    <body onload="displayEmoji()">
+
 
         <h1>CAPPY EMOJI BOARD</h1>
 
-        Emoji Text: <input type="text" id="myText" value="">
+        <p>Emoji Text: <input type="text" id="myText" value=""></P>
 
-
-        <button id = 'bike' onclick="myFunction(this.id)">🚲</button>
+        <!-- var bike_display = 🚲 -->
+        <button id = 'bike' onclick="myFunction(this.id)"></button>
         <button id = 'caps' onclick="toggleCaps()">caps</button>
 
         <script>
 
         var isCaps = false;
+        var button_ids = ['bike']
 
         function myFunction(id) {
             //var word = document.getElementById("myText").value;
             if(id in obj){
                 if(isCaps){
-                    document.getElementById("myText").value = obj[id].caps;
+                    document.getElementById("myText").value += ' ' + obj[id].caps;
                 }
                 else {
-                    document.getElementById("myText").value = obj[id].normal;
+                    document.getElementById("myText").value += ' ' +  obj[id].normal;
                 }
             };
         }
 
         function toggleCaps(){
             isCaps = !isCaps;
+            displayEmoji()
         }
+        function displayEmoji() {
+            button_ids.forEach(btn_id => {
+                    if(isCaps) {
+                      document.getElementById(btn_id).innerHTML = obj[btn_id].caps;
+                    }  else {
+                      document.getElementById(btn_id).innerHTML = obj[btn_id].normal;
+                    }
+            })
+
+        }
+
 
         const obj = {
             bike: {
@@ -44,8 +58,6 @@
             }
         }
         </script>
-        <p>🍔</p>
-        :child:
     </body>
 
 </html>
