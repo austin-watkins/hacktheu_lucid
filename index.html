@@ -2,178 +2,173 @@
 
 <html>
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Cappy-Emoji-Board</title>
-        <link rel="stylesheet" type="text/css" href="index.css">
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Cappy-Emoji-Board</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+  </head>
 
-    <body onload="displayEmoji()">
+  <body onload="displayEmoji()">
 
-        <h1>CAPPY EMOJI BOARD</h1>
+    <h1>CAPPY EMOJI BOARD</h1>
 
-        <p>Emoji Text: <input type="text" id="myText" value=""></P>
+    <p>Emoji: <input type="text" id="myText" value=""></P>
 
-        <!-- var bike_display = 🚲 -->
-        <button id = 'bike' onclick="myFunction(this.id)"></button>
-        <button id = 'heart' onclick="myFunction(this.id)"></button>
-        <button id = 'mouth' onclick="myFunction(this.id)"></button>
-        <button id = 'child' onclick="myFunction(this.id)"></button>
-        <button id = 'man' onclick="myFunction(this.id)"></button>
-        <button id = 'woman' onclick="myFunction(this.id)"></button>
-        <button id = 'person' onclick="myFunction(this.id)"></button>
-        <button id = 'student_man' onclick="myFunction(this.id)"></button>
-        <button id = 'student_woman' onclick="myFunction(this.id)"></button>
-        <button id = 'woman_baby' onclick="myFunction(this.id)"></button>
-        <button id = 'egg' onclick="myFunction(this.id)"></button>
-        <button id = 'chick' onclick="myFunction(this.id)"></button>
-        <button id = 'fish' onclick="myFunction(this.id)"></button>
-        <button id = 'bug' onclick="myFunction(this.id)"></button>
-        <button id = 'rose' onclick="myFunction(this.id)"></button>
-        <button id = 'tree' onclick="myFunction(this.id)"></button>
-        <button id = 'construction' onclick="myFunction(this.id)"></button>
-        <button id = 'train' onclick="myFunction(this.id)"></button>
-        <button id = 'car' onclick="myFunction(this.id)"></button>
-        <button id = 'scooter' onclick="myFunction(this.id)"></button>
-        <button id = 'boat' onclick="myFunction(this.id)"></button>
-        <button id = 'rocket' onclick="myFunction(this.id)"></button>
-        <button id = 'money' onclick="myFunction(this.id)"></button>
-        <button id = 'caps' onclick="toggleCaps()">caps</button>
+    <!-- var bike_display = 🚲 -->
+    <button id = 'bike' onclick="myFunction(this.id)"></button>
+    <button id = 'heart' onclick="myFunction(this.id)"></button>
+    <button id = 'mouth' onclick="myFunction(this.id)"></button>
+    <button id = 'child' onclick="myFunction(this.id)"></button>
+    <button id = 'man' onclick="myFunction(this.id)"></button>
+    <button id = 'woman' onclick="myFunction(this.id)"></button>
+    <button id = 'person' onclick="myFunction(this.id)"></button>
+    <button id = 'student_man' onclick="myFunction(this.id)"></button>
+    <button id = 'student_woman' onclick="myFunction(this.id)"></button>
+    <button id = 'woman_baby' onclick="myFunction(this.id)"></button>
+    <button id = 'egg' onclick="myFunction(this.id)"></button>
+    <button id = 'chick' onclick="myFunction(this.id)"></button>
+    <button id = 'fish' onclick="myFunction(this.id)"></button>
+    <button id = 'bug' onclick="myFunction(this.id)"></button>
+    <button id = 'rose' onclick="myFunction(this.id)"></button>
+    <button id = 'tree' onclick="myFunction(this.id)"></button>
+    <button id = 'construction' onclick="myFunction(this.id)"></button>
+    <button id = 'train' onclick="myFunction(this.id)"></button>
+    <button id = 'car' onclick="myFunction(this.id)"></button>
+    <button id = 'scooter' onclick="myFunction(this.id)"></button>
+    <button id = 'boat' onclick="myFunction(this.id)"></button>
+    <button id = 'rocket' onclick="myFunction(this.id)"></button>
+    <button id = 'money' onclick="myFunction(this.id)"></button>
+    <button id = 'caps' onclick="toggleCaps()"></button>
 
-        <script>
+    <script>
 
-        var isCaps = false;
-        var button_ids = ['bike', 'heart', 'mouth', 'child', 'man', 'woman',
-        'person', 'student_man', 'student_woman', 'woman_baby', 'egg', 'chick',
-        'fish', 'bug', 'rose', 'tree', 'construction', 'train', 'car', 'scooter',
-        'boat', 'rocket', 'money']
+      var isCaps = false;
 
-        function myFunction(id) {
-            //var word = document.getElementById("myText").value;
-            if(id in obj){
-                if(isCaps){
-                    document.getElementById("myText").value += ' ' + obj[id].caps;
-                }
-                else {
-                    document.getElementById("myText").value += ' ' +  obj[id].normal;
-                }
-            };
+      function myFunction(id) {
+        if(id in obj){
+          if(isCaps){
+              document.getElementById("myText").value += ' ' + obj[id].caps;
+          }
+          else {
+              document.getElementById("myText").value += ' ' +  obj[id].normal;
+          }
         }
+      }
 
-        function toggleCaps(){
-            isCaps = !isCaps;
-            displayEmoji()
+      function toggleCaps(){
+          isCaps = !isCaps;
+          displayEmoji()
+      }
+      function displayEmoji() {
+        for(const btn_id in obj){
+          if(isCaps) {
+            document.getElementById(btn_id).innerHTML = obj[btn_id].caps;
+          }  else {
+            document.getElementById(btn_id).innerHTML = obj[btn_id].normal;
+          }
         }
-        function displayEmoji() {
-            button_ids.forEach(btn_id => {
-                    if(isCaps) {
-                      document.getElementById(btn_id).innerHTML = obj[btn_id].caps;
-                    }  else {
-                      document.getElementById(btn_id).innerHTML = obj[btn_id].normal;
-                    }
-            });
-        }
+      }
 
-        const obj = {
-            bike: {
-                normal: '🚲',
-                caps: '🏍'
-            },
-            heart: {
-              normal: '❤',
-              caps: '💔'
-            },
-            mouth: {
-              normal: '👄',
-              caps: '💋'
-            },
-            child: {
-              normal: '👶',
-              caps: '🧒'
-            },
-            man: {
-              normal: '👨',
-              caps: '🧔'
-            },
-            man_hair: {
-              normal: '👨🦳',
-              caps: '👨‍🦲'
-            },
-            person: {
-              normal: '🧑',
-              caps: '🧓'
-            },
-            woman: {
-              normal: '👩',
-              caps: ' 	🧓'
-            },
-            student_man: {
-              normal: '👨‍🎓',
-              caps: '👨‍🏫'
-            },
-            student_woman: {
-              normal: '👩‍🎓',
-              caps: '👩‍🏫'
-            },
-            woman_baby: {
-              normal: '🤰',
-              caps: '🤱'
-            },
-            egg: {
-              normal: '🥚',
-              caps: '🐣'
-            },
-            chick: {
-              normal: '🐥',
-              caps: '🐓'
-            },
-            fish: {
-              normal: '🐟',
-              caps: '🐋'
-            },
-            bug: {
-              normal: '🐛',
-              caps: '🦋'
-            },
-            rose: {
-              normal: '🌹',
-              caps: '🥀'
-            },
-            tree: {
-              normal: '🌱',
-              caps: '🌲'
-            },
-            construction: {
-              normal: '🏗',
-              caps: '🏢'
-            },
-            train: {
-              normal: ' 	🚂',
-              caps: '🚄'
-            },
-            car: {
-              normal: '🚗',
-              caps: '🏎'
-            },
-            scooter: {
-              normal: '🛴',
-              caps: '🛵'
-            },
-            boat: {
-              normal: '⛵',
-              caps: '🛥'
-            },
-            rocket: {
-              normal: '🚀',
-              caps: '🛸'
-            },
-            money: {
-              normal: '🎰',
-              caps: '💰'
-            }
+      const obj = {
+        bike: {
+            normal: '🚲',
+            caps: '🏍'
+        },
+        heart: {
+          normal: '❤',
+          caps: '💔'
+        },
+        mouth: {
+          normal: '👄',
+          caps: '💋'
+        },
+        child: {
+          normal: '👶',
+          caps: '🧒'
+        },
+        man: {
+          normal: '👨',
+          caps: '🧔'
+        },
+        person: {
+          normal: '🧑',
+          caps: '🧓'
+        },
+        woman: {
+          normal: '👩',
+          caps: '🧓'
+        },
+        student_man: {
+          normal: '👨‍🎓',
+          caps: '👨‍🏫'
+        },
+        student_woman: {
+          normal: '👩‍🎓',
+          caps: '👩‍🏫'
+        },
+        woman_baby: {
+          normal: '🤰',
+          caps: '🤱'
+        },
+        egg: {
+          normal: '🥚',
+          caps: '🐣'
+        },
+        chick: {
+          normal: '🐥',
+          caps: '🐓'
+        },
+        fish: {
+          normal: '🐟',
+          caps: '🐋'
+        },
+        bug: {
+          normal: '🐛',
+          caps: '🦋'
+        },
+        rose: {
+          normal: '🌹',
+          caps: '🥀'
+        },
+        tree: {
+          normal: '🌱',
+          caps: '🌲'
+        },
+        construction: {
+          normal: '🏗',
+          caps: '🏢'
+        },
+        train: {
+          normal: '🚂',
+          caps: '🚄'
+        },
+        car: {
+          normal: '🚗',
+          caps: '🏎'
+        },
+        scooter: {
+          normal: '🛴',
+          caps: '🛵'
+        },
+        boat: {
+          normal: '⛵',
+          caps: '🛥'
+        },
+        rocket: {
+          normal: '🚀',
+          caps: '🛸'
+        },
+        money: {
+          normal: '🎰',
+          caps: '💰'
+        },
+        caps: {
+          normal: 'caps',
+          caps: 'CAPS'
         }
-        </script>
+      }
+    </script>
 
-    </body>
+  </body>
 
 </html>
