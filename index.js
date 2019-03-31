@@ -19,9 +19,10 @@ function toggleCaps(){
 function displayEmoji() {
     for(const btn_id in obj){
         if(isCaps) {
-        document.getElementById(btn_id).innerHTML = obj[btn_id].caps;
-        }  else {
-        document.getElementById(btn_id).innerHTML = obj[btn_id].normal;
+            document.getElementById(btn_id).innerHTML = obj[btn_id].caps;
+        } 
+        else {
+            document.getElementById(btn_id).innerHTML = obj[btn_id].normal;
         }
     }
 }
